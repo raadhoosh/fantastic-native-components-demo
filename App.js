@@ -7,28 +7,105 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { Button, CenterView, TextInput } from 'fantastic-native-components';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import { Platform, StyleSheet, View } from 'react-native';
+import { Button, CenterView, Text, Content, Container, Spinner, TextInput } from 'fantastic-native-components';
 
 export default class App extends Component {
   render() {
     return (
-      <CenterView>
-          <TextInput
-            placeholder="email"
-            onChangeText={(e) => { alert(e) }}
-          />
-          <Button onPress={() => { alert("hi") }}>
-            <Text >To get started, edit App.js</Text>
+      <Container>
+        <Content>
+          <Text dark >Example Text</Text>
+          <CenterView>
+            <Text primary>{'Text primary '}</Text>
+            <Text secondary>{'Text secondary '}</Text>
+            <Text info>{'Text info '}</Text>
+            <Text warning>{'Text warning '}</Text>
+            <Text danger>{'Text danger '}</Text>
+            <Text light>{'Text light'}</Text>
+            <Text dark>{'Text dark '}</Text>
+          </CenterView>
+
+          <Text dark >Example Spinner</Text>
+          <CenterView>
+            <Spinner size="small" primary />
+            <Spinner size="large" primary />
+            <Spinner size="large" secondary />
+            <Spinner size="large" info />
+            <Spinner size="large" warning />
+            <Spinner size="large" danger />
+            <Spinner size="large" dark />
+          </CenterView>
+          <Text dark >Example Button</Text>
+          <Text dark>{' '}</Text>
+          <Button primary full onPress={() => { alert("hi") }}>
+            <CenterView>
+              <Text dark>{'Click Me '}</Text>
+            </CenterView>
           </Button>
-      </CenterView>
+          <Text dark>{' '}</Text>
+          <Button secondary full onPress={() => { alert("hi") }}>
+            <CenterView>
+              <Text light>{'Click Me '}</Text>
+            </CenterView>
+          </Button>
+          <Text dark>{' '}</Text>
+          <Button info full onPress={() => { alert("hi") }}>
+            <CenterView>
+              <Text dark>{'Click Me '}</Text>
+            </CenterView>
+          </Button>
+
+          <Text dark>{' '}</Text>
+          <Button warning full onPress={() => { alert("hi") }}>
+            <CenterView>
+              <Text dark>{'Click Me '}</Text>
+            </CenterView>
+          </Button>
+          <Text dark>{' '}</Text>
+          <Button danger full onPress={() => { alert("hi") }}>
+            <CenterView>
+              <Text dark>{'Click Me '}</Text>
+            </CenterView>
+          </Button>
+
+          <Text dark>{' '}</Text>
+          <Button info size="small" onPress={() => { alert("hi") }}>
+            <CenterView>
+              <Text dark>{'Click Me '}</Text>
+            </CenterView>
+          </Button>
+          <Text dark>{' '}</Text>
+          <Button size="large" primary full onPress={() => { alert("hi") }}>
+            <CenterView>
+              <Text dark>{'Click Me '}</Text>
+            </CenterView>
+          </Button>
+
+          <Text dark >{' '}</Text>
+          <Text dark >Example TextInput</Text>
+          <Text dark >{' '}</Text>
+          <View style={{padding : 20}} >
+            <TextInput
+              primary
+              full
+              placeholder="email"
+              onChangeText={(t) => { console.log(t) }}
+            />
+            <Text dark >{' '}</Text>
+            <TextInput
+              danger
+              full
+              rounded
+              placeholder="email"
+              onChangeText={(t) => { console.log(t) }}
+            />
+          </View>
+          <Text dark >{' '}</Text>
+          <Text dark >{' '}</Text>
+        </Content>
+
+      </Container>
     );
   }
 }
