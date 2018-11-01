@@ -7,68 +7,79 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
-import { Button, CenterView, Text, Content, Container, Spinner, TextInput } from 'fantastic-native-components';
+import { StyleSheet, View } from 'react-native';
+import { Button, CenterView, Text, Content, Container, Spinner, TextInput, Header, Footer, Col, Row, Grid, Zooming, Sliding } from 'fantastic-native-components';
 
 export default class App extends Component {
   render() {
     return (
       <Container>
-        <Content>
-          <Text dark >Example Text</Text>
-          <CenterView>
-            <Text primary>{'Text primary '}</Text>
-            <Text secondary>{'Text secondary '}</Text>
-            <Text info>{'Text info '}</Text>
-            <Text warning>{'Text warning '}</Text>
-            <Text danger>{'Text danger '}</Text>
-            <Text light>{'Text light'}</Text>
-            <Text dark>{'Text dark '}</Text>
-          </CenterView>
+        <Header><Text dark >Header</Text></Header>
+        <Content full>
+          <Text dark animation="slideInDown" direction="alternate">Example Text</Text>
+          <Zooming animation="InLeft">
+            <CenterView>
+              <Text primary animation="pulse" easing="ease-out" iterationCount="infinite" >{'Text primary '}</Text>
+              <Text secondary animation="bounce" iterationCount="infinite" >{'Text secondary '}</Text>
+              <Text info animation="flash" iterationCount="infinite">{'Text info '}</Text>
+              <Text warning animation="jello" iterationCount="infinite">{'Text warning '}</Text>
+              <Text danger>{'Text danger '}</Text>
+              <Text light>{'Text light'}</Text>
+              <Text dark>{'Text dark '}</Text>
+            </CenterView>
+          </Zooming>
 
           <Text dark >Example Spinner</Text>
-          <CenterView>
-            <Spinner size="small" primary />
-            <Spinner size="large" primary />
-            <Spinner size="large" secondary />
-            <Spinner size="large" info />
-            <Spinner size="large" warning />
-            <Spinner size="large" danger />
-            <Spinner size="large" dark />
-          </CenterView>
+          <Sliding>
+            <CenterView>
+              <Spinner size="small" primary />
+              <Spinner size="large" primary />
+              <Spinner size="large" secondary />
+              <Spinner size="large" info />
+              <Spinner size="large" warning />
+              <Spinner size="large" danger />
+              <Spinner size="large" dark />
+            </CenterView>
+          </Sliding>
           <Text dark >Example Button</Text>
           <Text dark>{' '}</Text>
-          <Button primary full onPress={() => { alert("hi") }}>
-            <CenterView>
-              <Text dark>{'Click Me '}</Text>
-            </CenterView>
-          </Button>
+          <Sliding>
+            <Button primary full onPress={() => { alert("hi") }}>
+              <CenterView>
+                <Text dark>{'Click Me '}</Text>
+              </CenterView>
+            </Button>
+          </Sliding>
           <Text dark>{' '}</Text>
-          <Button secondary full onPress={() => { alert("hi") }}>
-            <CenterView>
-              <Text light>{'Click Me '}</Text>
-            </CenterView>
-          </Button>
+          <Sliding animation="InDown">
+            <Button secondary full onPress={() => { alert("hi") }}>
+              <CenterView>
+                <Text light>{'Click Me '}</Text>
+              </CenterView>
+            </Button>
+          </Sliding>
           <Text dark>{' '}</Text>
-          <Button info full onPress={() => { alert("hi") }}>
-            <CenterView>
-              <Text dark>{'Click Me '}</Text>
-            </CenterView>
-          </Button>
-
+          <Sliding animation="InLeft">
+            <Button info full onPress={() => { alert("hi") }}>
+              <CenterView>
+                <Text dark>{'Click Me '}</Text>
+              </CenterView>
+            </Button>
+          </Sliding>
           <Text dark>{' '}</Text>
-          <Button warning full onPress={() => { alert("hi") }}>
-            <CenterView>
-              <Text dark>{'Click Me '}</Text>
-            </CenterView>
-          </Button>
+          <Sliding animation="InRight">
+            <Button warning full onPress={() => { alert("hi") }}>
+              <CenterView>
+                <Text dark>{'Click Me '}</Text>
+              </CenterView>
+            </Button>
+          </Sliding>
           <Text dark>{' '}</Text>
           <Button danger full onPress={() => { alert("hi") }}>
             <CenterView>
               <Text dark>{'Click Me '}</Text>
             </CenterView>
           </Button>
-
           <Text dark>{' '}</Text>
           <Button info size="small" onPress={() => { alert("hi") }}>
             <CenterView>
@@ -85,7 +96,7 @@ export default class App extends Component {
           <Text dark >{' '}</Text>
           <Text dark >Example TextInput</Text>
           <Text dark >{' '}</Text>
-          <View style={{padding : 20}} >
+          <View style={{ padding: 20 }} >
             <TextInput
               primary
               full
@@ -101,10 +112,60 @@ export default class App extends Component {
               onChangeText={(t) => { console.log(t) }}
             />
           </View>
-          <Text dark >{' '}</Text>
+          <Text dark >{'Example Grid'}</Text>
+          <View style={{ padding: 20, height: 500 }} >
+            <Grid>
+              <Col>
+                <Row style={{ backgroundColor: "red" }} size={3}>
+                  <CenterView>
+                    <Text dark>{'3'}</Text>
+                  </CenterView>
+                </Row>
+                <Row style={{ backgroundColor: "blue" }} size={1}>
+                  <CenterView>
+                    <Text dark>{'1'}</Text>
+                  </CenterView>
+                </Row>
+              </Col>
+              <Col>
+                <Row style={{ backgroundColor: "blue" }} >
+                  <CenterView>
+                    <Text dark>{'50%'}</Text>
+                  </CenterView>
+                </Row>
+                <Row style={{ backgroundColor: "purple" }}>
+                  <CenterView>
+                    <Text dark>{'50%'}</Text>
+                  </CenterView>
+                </Row>
+              </Col>
+              <Col>
+                <Row style={{ backgroundColor: "pink" }} size={1}>
+                  <CenterView>
+                    <Text dark>{'1'}</Text>
+                  </CenterView>
+                </Row>
+                <Row style={{ backgroundColor: "red" }} size={1}>
+                  <CenterView>
+                    <Text dark>{'1'}</Text>
+                  </CenterView>
+                </Row>
+                <Row style={{ backgroundColor: "yellow" }} size={1}>
+                  <CenterView>
+                    <Text dark>{'1'}</Text>
+                  </CenterView>
+                </Row>
+                <Row style={{ backgroundColor: "grey" }} size={1}>
+                  <CenterView>
+                    <Text dark>{'1'}</Text>
+                  </CenterView>
+                </Row>
+              </Col>
+            </Grid>
+          </View>
           <Text dark >{' '}</Text>
         </Content>
-
+        <Footer secondary><Text dark >Footer</Text></Footer>
       </Container>
     );
   }
